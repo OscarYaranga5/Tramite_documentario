@@ -12,131 +12,154 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Consultar Trámites</title>
-        <link rel="stylesheet" href="../../Css/tramiteNuevo.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         <style>
-            /* Estilos para el modal */
-            .modal {
-                display: none;
-                position: fixed;
-                z-index: 1;
-                left: 0;
-                top: 0;
-                width: 100%;
-                height: 100%;
-                overflow: auto;
-                background-color: rgb(0,0,0);
-                background-color: rgba(0,0,0,0.4);
-                padding-top: 60px;
-            }
-            .modal-content {
-                background-color: #fefefe;
-                margin: 5% auto;
-                padding: 20px;
-                border: 1px solid #888;
-                width: 30%;
-            }
-            .close {
-                color: #aaa;
-                float: right;
-                font-size: 28px;
-                font-weight: bold;
-            }
-            .close:hover,
-            .close:focus {
-                color: black;
-                text-decoration: none;
-                cursor: pointer;
-            }
-            textarea {
-                width: 100%;
-                height: 100px;
-                margin: 10px 0;
-            }
-            .open-modal{
-                cursor: pointer;
-                border:none;
-                width: 70px;
-                border-radius:3px;
-                color: white;
-                text-align: center;
-                font-weight: bold;
-            }
-            #open-modal1{
-                background-color: #2ECC71;
-            }
-            #open-modal1:hover{
-                background-color: #196F3D;
-            }
-            #open-modal2{
-                background-color: #F1C40F;
-            }
-            #open-modal2:hover{
-                background-color: #9C640C;
-            }
-            #open-modal3{
-                background-color: #E74C3C;
-            }
-            #open-modal3:hover{
-                background-color: #C0392B;
-            }
-            #btnAceptar,
-            #btnSubsanar,
-            #btnEliminar{
-                cursor: pointer;
-                border:none;
-                width: 100px;
-                color: white;
-                text-align: center;
-                font-weight: bold;
-            }
-            #btnAceptar{
-                background-color: #58d68d;
-            }
-            #btnAceptar:hover{
-                background-color: #4CAF50;
-            }
-            #btnSubsanar{
-                background-color: #F39C12;
-            }
-            #btnSubsanar:hover{
-                background-color: #D35400;
-            }
-            #btnEliminar{
-                background-color: #E74C3C;
-            }
-            #btnEliminar:hover{
-                background-color: #C0392B;
-            }
-            textarea {
-                width: 87%;
-                max-width: 500px;
-                height: 150px;
-                padding: 10px;
-                border: 1px solid #ccc;
-                border-radius: 5px;
-                resize: vertical;
-                font-family: Arial, sans-serif;
-                font-size: 14px;
-                color: #333;
-                background-color: #f9f9f9;
-                box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
-                transition: border-color 0.3s, box-shadow 0.3s;
-            }
-            textarea:focus {
-                border-color: #66afe9;
-                box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1), 0 0 8px rgba(102, 175, 233, 0.6);
-                outline: none;
-            }
-
-            /* Estilo cuando el textarea está inactivo (disabled) */
-            textarea:disabled {
-                background-color: #e9ecef;
-                cursor: not-allowed;
-            }
+         
         </style>
     </head>
+    <style>
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #f4f6f9;
+    color: #2f4050;
+}
+
+header {
+    background-color: #2f4050;
+    color: white;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+header .logo img {
+    height: 50px;
+}
+
+.itemsNav a, .itemsPerfil a {
+    color: white;
+    text-decoration: none;
+    margin-left: 15px;
+    font-weight: bold;
+}
+
+.itemsNav a:hover, .itemsPerfil a:hover {
+    text-decoration: underline;
+}
+
+main {
+    padding: 30px;
+}
+
+.dato .botones {
+    margin-bottom: 15px;
+}
+
+#buscar {
+    padding: 10px;
+    width: 300px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+th, td {
+    padding: 12px 15px;
+    text-align: center;
+    border-bottom: 1px solid #eee;
+}
+
+th {
+    background-color: #2f4050;
+    color: white;
+}
+
+td a {
+    color: #1ab394;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.open-modal {
+    background-color: #1ab394;
+    color: white;
+    border: none;
+    padding: 7px 10px;
+    margin: 2px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.open-modal:hover {
+    background-color: #17a589;
+}
+
+/* MODAL STYLING */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0; top: 0;
+    width: 100%; height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    width: 400px;
+    max-width: 90%;
+    position: relative;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+}
+
+.modal-content h2 {
+    margin-top: 0;
+}
+
+.modal-content textarea {
+    width: 100%;
+    height: 100px;
+    margin-top: 10px;
+    padding: 10px;
+    font-family: 'Segoe UI';
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.modal-content button {
+    background-color: #1ab394;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin-top: 15px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.modal-content .close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 20px;
+    cursor: pointer;
+}
+    </style>
     <body>
         <header>
             <div class="logo">

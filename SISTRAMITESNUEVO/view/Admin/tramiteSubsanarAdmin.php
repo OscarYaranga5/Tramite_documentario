@@ -11,18 +11,111 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trámites a Subsanar</title>
-    <link rel="stylesheet" href="../../Css/tramiteNuevo.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <style>
-        /* Añadir estilo para el input de búsqueda */
-        #buscar {
-            padding: 10px;
-            margin: 20px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            width: calc(100% - 40px);
+ * {
+            margin: 0;
+            padding: 0;
             box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f5f5f5;
+            color: #2f4050;
+        }
+
+        header {
+            background-color: #2f4050;
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: white;
+        }
+
+        .logo img {
+            height: 50px;
+        }
+
+        .itemsNav a,
+        .itemsPerfil a {
+            color: white;
+            margin: 0 10px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        .itemsNav a:hover,
+        .itemsPerfil a:hover {
+            color: #1ab394;
+        }
+
+        main {
+            padding: 30px;
+        }
+
+        .encabezado h1 {
+            margin-bottom: 20px;
+            color: #1ab394;
+        }
+
+        .dato {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+        }
+
+        .dato input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 2px solid #ccc;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+
+        .contenedorTable {
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 15px;
+        }
+
+        thead {
+            background-color: #1ab394;
+            color: white;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        tr:hover {
+            background-color: #f2f2f2;
+        }
+
+        a i.fas.fa-file-pdf {
+            color: #e74c3c;
+            margin-right: 5px;
+        }
+
+        a.download-link {
+            color: #2f4050;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        a.download-link:hover {
+            color: #1ab394;
         }
     </style>
 </head>

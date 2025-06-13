@@ -6,26 +6,75 @@
     <title>Consultar Trámites</title>
     <link rel="stylesheet" href="Css/consulta1.css">
     <style>
-        td button {
-            background-color: #4CAF50;
-            color: white;
-            display: flex;
-            padding: 3px 2px;
-            gap:3px;
-            align-items: center;
-            border: none;
-            cursor: pointer;
-            width: 100%;
-        }
-        td button:hover {
-            background-color: #3e8e41;
-        }
-        td a{
-            display: flex;
-            align-items: center;
-            gap:2px;
-            text-decoration: none;
-        }
+        * {
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+}
+
+body {
+  margin: 0;
+  background: linear-gradient(to right, #f7f7f7, #e0e0e0);
+  color: #333;
+}
+
+header {
+  background: linear-gradient(90deg, #667eea, #764ba2);
+  color: white;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.logo img {
+  height: 40px;
+}
+
+.logo h1 {
+  margin: 0;
+  font-size: 20px;
+}
+
+.nav {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.nav a {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  background-color: rgba(255, 255, 255, 0.15);
+  padding: 10px 15px;
+  border-radius: 8px;
+  transition: background 0.3s;
+}
+
+.nav a:hover {
+  background-color: rgba(255, 255, 255, 0.35);
+}
+
+main {
+  max-width: 1000px;
+  margin: 40px auto;
+  padding: 20px;
+}
+
+form {
+  background: white;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px
+}
     </style>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -38,7 +87,6 @@
         </div>
         <div class="nav">
             <a href="index.php">Nuevo Trámite</a>
-            <a href="consultar_tramites.php">Consultar Trámites</a>
         </div>
     </header>
     <main>
